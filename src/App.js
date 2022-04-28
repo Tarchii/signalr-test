@@ -8,6 +8,9 @@ import { useState } from 'react';
 import FramerMotionContainer from './components/FramerMotionContainer';
 import { motion } from 'framer-motion';
 
+const backURL =
+  'https://19bd-2803-9800-b442-81b9-7025-7d64-cadd-f5a0.sa.ngrok.io/chat';
+
 export default function App() {
   const [connection, setConnection] = useState();
   const [messages, setMessages] = useState([]);
@@ -19,9 +22,7 @@ export default function App() {
   const joinRoom = async (user, room) => {
     try {
       const connection = new HubConnectionBuilder()
-        .withUrl(
-          'https://19bd-2803-9800-b442-81b9-7025-7d64-cadd-f5a0.sa.ngrok.io/chat'
-        )
+        .withUrl(backURL)
         .configureLogging(LogLevel.Information)
         .build();
       console.log(connection);
